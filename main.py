@@ -2,9 +2,11 @@ def main():
     # Учёт техники в компании, ключ это предмет в компании, значение это список["адрес","человек","id","цена"]
     # вывод информации, перемещение в другое место, перепривяку к другому человеку, удаление, добавление, редактирование
     # сделать словарь для учёта офисов
+
     id = 1
     techs={"Монитор":["Одинцова 8","Офис_1",1,400]}
     offices={"Офис_1":"Одинцова 8"}
+
     exit = True
     while exit:
         choose=int(input("1.Заниматься предметами\n2.Заниматься офисами\n3.ВЫХОД\n-> "))
@@ -19,9 +21,13 @@ def main():
                     new_id = id
                     coast= int(input("Введите цену нового товара "))
                     techs.update({name:[adres,owner,new_id,coast]})
+                    f = open('offices.txt', 'w')
+                    f.writelines(techs.update)
+                    f.close()
                 elif choose == 2:
                     name = input("Введите название товара ")
                     if name in techs.keys():
+                        name = open('example.txt', 'r')
                         new_coast=int(input("Введите новую цену "))
                         techs[name][3]=new_coast
                     else:
@@ -104,5 +110,4 @@ def main():
             exit = False
         else:
             print("Некорректный ввод, повторите попытку")
-###########################################################
 main()
